@@ -22,7 +22,7 @@
     </p>
     <p>
       RuleKeys are used to encapsulate all of the factors which may contribute to the output of a BuildRule into a single value - a hashcode.
-      If any RuleKey of a BuildRule has not changed, the output of that BuildRule cannot have changed.
+      If the RuleKey of a BuildRule has not changed, the output of that BuildRule cannot have changed.
     <p>
     <p>
       The goal of the RuleKeys is to help buck minimise the amount of BuildRules that need to be built locally on each buck run.
@@ -122,7 +122,8 @@
         <li>A list of files which are conditional inputs (e.g. for a cxx_library, the list of header files)</li>
         <li>A list of the conditional input files which were actually used in the most recent BuildRule execution</li>
       </ol>
-      Note that this RuleKey is only applicable where the conditionality of the usage of any particular input could not have changed since these lists were constructed (e.g. for a cxx_library, if no #include statements were added, removed, modified, or re-ordered, and no header files were added or removed to the target).
+      Note that this RuleKey is only applicable where the conditionality of the usage of 
+    particular input could not have changed since these lists were constructed (e.g. for a cxx_library, if no #include statements were added, removed, modified, or re-ordered, and no header files were added or removed to the target).
       This RuleKey adds the following information to the hash:
     </p>
     <ul>
